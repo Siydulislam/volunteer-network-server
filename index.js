@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 
 const port = 5000;
 
+app.get('/', (req, res) =>{
+  res.send("Hello, how are you doing?")
+})
+
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const eventsCollection = client.db(process.env.DB_NAME).collection("events");
