@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-
+const port = 5000;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
@@ -81,4 +81,4 @@ client.connect(err => {
 
 });
 
-app.listen(5000);
+app.listen(process.env.PORT || port);
